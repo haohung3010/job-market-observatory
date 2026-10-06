@@ -1,0 +1,3 @@
+data/raw/
+data/*.sqlite*
+__pycache__/

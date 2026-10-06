@@ -1,0 +1,16 @@
+subset,level,weighting,test_titles,accuracy_pct,baseline_pct,lookup_pct
+all occupations,unit group (5),by title,2109,67.0,6.7,58.9
+all occupations,unit group (5),by posting,2109,76.8,0.5,68.2
+all occupations,minor group (4),by title,2109,69.7,6.7,63.1
+all occupations,minor group (4),by posting,2109,82.3,0.5,73.8
+all occupations,major group (2),by title,2109,73.0,6.7,67.8
+all occupations,major group (2),by posting,2109,83.6,0.5,75.5
+all occupations,"unit group (5), top 3",by title,2109,81.7,,
+health (NOC 3),unit group (5),by title,123,78.0,0.0,68.3
+health (NOC 3),unit group (5),by posting,123,85.2,0.0,69.5
+health (NOC 3),minor group (4),by title,123,79.7,0.0,71.5
+health (NOC 3),minor group (4),by posting,123,86.0,0.0,70.7
+health (NOC 3),major group (2),by title,123,80.5,0.0,72.4
+health (NOC 3),major group (2),by posting,123,86.6,0.0,70.8
+health (NOC 3),"unit group (5), top 3",by title,123,87.8,,
+all occupations,ceiling (title-only),by posting,10541,100.0,,

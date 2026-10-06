@@ -1,0 +1,5 @@
+source,file,bytes,sha256,url
+apr2026,job-bank-open-data-all-job-postings-en-apr2026.csv,47395476,d134c7217f3e13046cf7f6aa1b545bc4c8be8677b8a4aa6332cb2b6c56c7fe73,https://open.canada.ca/data/dataset/ea639e28-c0fc-48bf-b5dd-b8899bd43072/resource/3ad01777-6cb7-4678-b4ab-3066f23dee80/download/job-bank-open-data-all-job-postings-en-apr2026.csv
+may2026,job-bank-open-data-all-job-postings-en-may2026.csv,44230300,ce1b712b7ad29026f0a6de406004d10a4eb7f9fe440f7a0881efb48f0048ffde,https://open.canada.ca/data/dataset/ea639e28-c0fc-48bf-b5dd-b8899bd43072/resource/0b70e798-1ab5-4b74-8444-3c6ceab175d7/download/job-bank-open-data-all-job-postings-en-may2026.csv
+june2026,job-bank-open-data-all-job-postings-en-june2026.csv,48889598,3e2722edb73ac373afca236778ff81d562b5b26f90facef302d776822e99b745,https://open.canada.ca/data/dataset/ea639e28-c0fc-48bf-b5dd-b8899bd43072/resource/456e5b1d-3593-44e7-81b6-6e665adec29f/download/job-bank-open-data-all-job-postings-en-june2026.csv
+vacancies,14100444-eng.zip,99676598,bb50ed47b2b5149c481e11f7be3289f137867df7457f17d7e58e37c5ea6a0080,https://www150.statcan.gc.ca/n1/tbl/csv/14100444-eng.zip

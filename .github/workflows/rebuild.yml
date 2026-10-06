@@ -1,0 +1,45 @@
+# Re-fetch the sources and rebuild everything, on a schedule, and commit the run log, the outputs and the report.
+# The quarter is fixed at 2026 Q2 in fetch_sources.py and build_db.py, so a scheduled run re-checks the same quarter
+# against the publishers' current files: Statistics Canada revises past quarters, and a moved number shows up as a
+# changed line in data/runs.jsonl, a changed report and changed README blocks. Advancing the quarter automatically is
+# not built yet. Only a run where every step passed commits its outputs; a failed run commits its log line alone.
+name: rebuild
+
+on:
+  schedule:
+    - cron: "0 14 20 * *"    # monthly, the 20th, after Job Bank's monthly file and StatCan's quarterly release
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: fetch and rebuild
+        run: python scripts/run_all.py --fetch
+      - name: commit the run log, the outputs, the report and the README's generated blocks
+        if: success()
+        run: |
+          git config user.name "observatory-rebuild"
+          git config user.email "observatory-rebuild@users.noreply.github.com"
+          git add data/runs.jsonl data/MANIFEST.csv data/forecast.csv data/forecast_backtest.csv \
+                  data/forecast_trend.csv data/vacancy_series.csv data/title_classifier_eval.csv \
+                  data/direct_vs_external.csv report/ README.md
+          git diff --cached --quiet || git commit -m "Scheduled rebuild: run log, outputs and report"
+          git push
+      - name: on failure, commit only the failed run's line in the log
+        if: failure()
+        run: |
+          git config user.name "observatory-rebuild"
+          git config user.email "observatory-rebuild@users.noreply.github.com"
+          git add data/runs.jsonl
+          git diff --cached --quiet || git commit -m "Scheduled rebuild failed: run log only"
+          git push

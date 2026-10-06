@@ -1,0 +1,4 @@
+# Python 3.12. The data scripts (fetch_sources, build_db, forecast) use the standard library only.
+scikit-learn==1.8.0
+numpy==2.4.4
+matplotlib==3.10.8
