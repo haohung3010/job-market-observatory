@@ -97,7 +97,7 @@ def main(argv):
                      "sha256": hashlib.sha256(back).hexdigest(), "url": url})
         print("fetched %-10s %10d bytes  sha256 %s" % (label, len(back), rows[-1]["sha256"][:16]))
     with io.open(os.path.join(ROOT, "data", "MANIFEST.csv"), "w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["source", "file", "bytes", "sha256", "url"])
+        w = csv.DictWriter(f, fieldnames=["source", "file", "bytes", "sha256", "url"], lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
     return 0

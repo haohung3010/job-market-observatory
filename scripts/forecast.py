@@ -233,20 +233,20 @@ def main():
             print("  [CONTROL] FAIL: the range narrows with horizon")
             return 3
     with io.open(OUT_BT, "w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["noc", "model", "origin", "horizon", "target", "predicted", "actual", "error"])
         w.writerows(bt_rows)
     with io.open(OUT_FC, "w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["noc", "model", "quarter", "horizon", "forecast", "low_4in5", "high_4in5", "errors_behind_range"])
         w.writerows(fc_rows)
     with io.open(OUT_TR, "w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["noc", "from", "to", "quarters", "slope_per_quarter", "standard_error", "t", "mean_last_4",
                     "min", "max", "mean_first_4", "slope_last_8", "standard_error_last_8", "t_last_8"])
         w.writerows(tr_rows)
     with io.open(OUT_SER, "w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["noc", "quarter", "ref_date", "vacancies", "grade"])
         w.writerows(ser_rows)
     print("\nWROTE %s (%d rows), %s (%d rows), %s (%d rows) and %s (%d rows)" % (

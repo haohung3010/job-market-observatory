@@ -90,7 +90,7 @@ def main():
     print("[CONTROL] group %s, labels shuffled: distance %.2f, %d of %d random splits as far (must be over 5%%): %s" % (
         g, obs, far, PERMS, "PASS" if ok else "FAIL"))
     with io.open(OUT, "w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["minor_group", "direct", "external", "distance", "random_95th", "random_as_far", "random_splits"])
         w.writerows(out)
     print("WROTE %s (%d rows)" % (OUT, len(out)))

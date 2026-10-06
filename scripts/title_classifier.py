@@ -178,7 +178,7 @@ def main():
     print("[CONTROL] top probability for a nonsense title %.2f (expected low)" % p)
 
     with io.open(OUT, "w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["subset", "level", "weighting", "test_titles", "accuracy_pct", "baseline_pct", "lookup_pct"])
         w.writerows(rows)
         w.writerow(["all occupations", "ceiling (title-only)", "by posting", len(titles), round(100 * ceiling, 1), "",
